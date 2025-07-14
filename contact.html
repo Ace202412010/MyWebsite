@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me - My Personal Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body> <div id="page-loader">Loading...</div>
+  <header>
+    <div class="container">
+      <h1>Contact Me</h1>
+      <nav>
+      <a href="index.html" class="nav-link heartbeat-hover">Home</a>
+      <a href="about.html" class="nav-link heartbeat-hover">About</a>
+      <a href="contact.html" class="nav-link heartbeat-hover">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <button onclick="toggleDarkMode()" id="darkModeToggle">Toggle Dark Mode</button>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+
+  <h2 style="text-align: center; color: white;">Current Time:</h2>
+  <div id="clock" style="color: white; text-align: center;">Loading time...</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      let hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+
+      const timeString = `${hours.toString().padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+      document.getElementById('clock').textContent = timeString;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+  <main class="box-container">
+    <section>
+      <h2>Feedback Form</h2>
+      <form id="contact-form"><div id="plane-loader" class="plane-loader" style="display: none;"></div>
+        <label for="name">Full Name:</label><br />
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required /><br /><br />
+
+        <label for="email">Email Address:</label><br />
+        <input type="email" id="email" name="email" placeholder="Enter your email" required /><br /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea id="message" name="message" rows="5" placeholder="Write your feedback to my website here..." required></textarea><br /><br />
+
+        <button type="submit">Send</button>
+        <p class="success" id="response"></p>
+      </form>
+    </section>
+  </main>
+
+  <a href="index.html" class="back-button">← Back to Home</a>
+
+  <footer>
+    <div class="container">
+      <p>© Divino, Ace Jefferson T. | Finals Activity Web Design</p>
+    </div>
+  </footer>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyxM9KkKA2DPrkM3Y9-RuugtoeEsrz-23olx74qDhqRncb2DS190-O99zlT-FtExmT2rQ/exec";
+  const form = document.getElementById("contact-form");
+  const responseMsg = document.getElementById("response");
+  const submitButton = form.querySelector("button[type='submit']");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Get form data
+    const name = form.querySelector("input[name='name']").value.trim();
+    const email = form.querySelector("input[name='email']").value.trim();
+    const message = form.querySelector("textarea[name='message']").value.trim();
+
+    // Popup confirmation
+    if (!confirm("Are you sure you want to submit this form?")) {
+      responseMsg.textContent = "Message Cancelled!";
+      responseMsg.style.color = "red";
+      return;
+    }
+
+    let isValid = false;
+    
+    // do-while loop to keep checking validations
+    do {
+      // Validate name
+      if (!name || !/[A-Za-z]/.test(name)) {
+        responseMsg.textContent = "Name must contain letters and cannot be just spaces!";
+        responseMsg.style.color = "red";
+        return;
+      }
+      
+      // Validate email
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        responseMsg.textContent = "Please enter a valid email address.";
+        responseMsg.style.color = "red";
+        return;
+      }
+      
+      // Validate message
+      if (!message || !/[A-Za-z]/.test(message)) {
+        responseMsg.textContent = "Message must contain letters and cannot be empty or just spaces!";
+        responseMsg.style.color = "red";
+        return;
+      }
+
+      // If all validations pass
+      isValid = true;
+
+    } while (!isValid);  // Continue looping until valid
+
+    // Loading animation
+    submitButton.classList.add("loading");
+    submitButton.textContent = "Sending";
+
+    // Send form data
+    const formData = new FormData(form);
+    fetch(scriptURL, {
+      method: "POST",
+      body: new URLSearchParams(formData)
+    })
+      .then(res => res.json())
+      .then(() => {
+        responseMsg.textContent = "Message sent successfully!";
+        responseMsg.style.color = "green";
+        form.reset();
+        submitButton.classList.remove("loading");
+        submitButton.textContent = "Send";
+
+        // Redirect with 1.5 second delay
+        setTimeout(() => {
+          window.location.href = "success.html";
+        }, 1500); // Delay for redirection
+      })
+      .catch(error => {
+        responseMsg.textContent = "Error sending message.";
+        responseMsg.style.color = "red";
+        submitButton.classList.remove("loading");
+        submitButton.textContent = "Send";
+        console.error("Error!", error.message);
+      });
+  });
+</script>
+
+ <script>
+  document.querySelectorAll('a.nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+
+      // If it's a normal link (not # or JS)
+      if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+        e.preventDefault();
+
+        const loader = document.getElementById('page-loader');
+        loader.style.display = 'flex';
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500); // .5 second delay
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>

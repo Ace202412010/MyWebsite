@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body> <div id="page-loader">Loading...</div>
+  <header>
+    <div class="container">
+      <h1>Welcome to My Website</h1>
+      <nav>
+      <a href="index.html" class="nav-link heartbeat-hover">Home</a>
+      <a href="about.html" class="nav-link heartbeat-hover">About</a>
+      <a href="contact.html" class="nav-link heartbeat-hover">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+	<button onclick="toggleDarkMode()" id="darkModeToggle">Toggle Dark Mode</button>
+
+	<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  	}
+	</script>
+
+	<div id="clock" style="position: fixed; top: 10px; left: 20px; color: white; text-align: center; background: rgba(0, 0, 0, 0.5); padding: 6px 12px; border-radius: 8px; z-index: 100;">
+	</div>
+
+<script> 
+  function updateClock() {
+    const now = new Date();
+
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    const timeString = `${hours.toString().padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+    document.getElementById('clock').textContent = timeString;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+  
+  
+  <main class="box-container" section style="text-align: center; margin-top: 30px;">
+  <p><stong>Welcome!</stong> Below are the activities I created for our Web Design finals project.</p>
+</section>
+</main>
+  <!-- Start of the centered boxes of projects -->
+  <div class="first-two-boxes">
+  <main class="box-container"> 
+    <section>
+      <ul>
+        <li><a href="webpage1.html"> <strong>Project A - 2 Web Pages about SDG 10</strong></a></li>
+      </ul>
+      <p> This a project about the 17 Sustainable Development Goals of The United Nations, and I chose the 10th goal out of all the 17 goals. Click the highlighted green text above for more infomation about the 10th SDG.
+      </p>
+	<img src="https://www.its.ac.id/sustainability/wp-content/uploads/sites/120/2020/08/SDG_10-1-1024x1024.png" width="150" height="150" alt="SDG 10 Logo">    </section>
+  </main>
+  
+  <main class="box-container">
+    <section>
+      <ul>
+        <li><a href="periodic.html"><strong>Project B -  Periodic Table Design</strong></a></li>
+      </ul>
+      <p> This periodic table is a project that I made in complission for this activity. It is a self-made, self-designed periodic table, while following the regular format of a periodic table. Click the highlighted green text above to view the customized periodic table.
+      </p>
+      <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20220728123857/Periodic-table-of-elements-1024x715.png" width="150" height="150" alt="Periodic Table">
+    </section>
+  </main>
+</div>
+
+  <div class="first-two-boxes">
+  <main class="box-container">
+    <section>
+      <ul>
+        <li><a href="Registration.html"><strong>Project C - Registration Form on UN SDG</strong></a></li>
+      </ul>
+      <p> This project mimics an actual registration form, and to demonstrate the ability to create a registration form using HTML and CSS. Click the green highlighted text above to see the actual project.
+      <img src="https://monday.com/blog/wp-content/uploads/2022/09/pasted-image-0-28.png" width="150" height="150" alt="Registration Form">
+    </section>
+  </main>
+
+  <main class="box-container">
+    <section>
+      <ul>
+        <li><a href="Resume.html"><strong>Project D - Resume</strong></a></li>
+      </ul>
+      <p> This is a resume project, in which contains my experiences, skills, and basic information. Click the highlighted text to see the actual project.
+      <img src="https://resumegenius.com/wp-content/uploads/new-age-colorful-resume-template-aqua-red.png" width="150" height="150" alt="Resume">
+    </section>
+  </main>
+</div>
+
+  <section class="contact-info-right">
+    <div class="glow-box">
+      <h5 style="margin: 2px 0;">Contact Number: 0917xxxx124</h5>
+      <h5 style="margin: 2px 0;">Email Address: 202412010@fit.edu.ph</h5>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© Divino, Ace Jefferson T. | Finals Activity Web Design</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+
+      // Show loader
+      const loader = document.getElementById('page-loader');
+      loader.style.display = 'flex';
+
+      // Delay redirect
+      setTimeout(() => {
+        window.location.href = href;
+      }, 1000); // 1-second loading effect
+    });
+  });
+</script>
+
+  <script>
+  document.querySelectorAll('a.nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+
+      // If it's a normal link (not # or JS)
+      if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+        e.preventDefault();
+
+        const loader = document.getElementById('page-loader');
+        loader.style.display = 'flex';
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500); // .5 second delay
+      }
+    });
+  });
+</script>
+
+
+
+</body>
+
+
+</body>
+</html>

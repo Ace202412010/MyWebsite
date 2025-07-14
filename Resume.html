@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clean Resume Two Column Reordered</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background: #f7f9fc;
+      color: #333;
+    }
+	
+	
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+      padding: 40px 50px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+    }
+    .left-column, .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+         text-align: left;
+    }
+    .name-title h1 {
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+      color: #2c3e50;
+    }
+    .name-title p {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+      margin-top: 0;
+    }
+    .contact-info {
+      text-align: left;
+      color: #34495e;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+    .contact-box {
+      background: #ecf0f1;
+      box-shadow: inset 0 0 10px #d0d7dd;
+      padding: 15px 20px;
+      border-radius: 6px;
+    }
+    section {
+      margin: 0;
+    }
+    .section-box {
+      background: #f9fbfc;
+      border: 1px solid #dce3e8;
+      border-radius: 8px;
+      padding: 20px 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    h2 {
+      font-size: 1.6rem;
+      color: #2980b9;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #2980b9;
+      padding-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+    .summary {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #555;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .skill {
+      background: #ecf0f1;
+      color: #2c3e50;
+      padding: 7px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .experience, .education {
+      border-left: 5px solid #09B078;
+      padding-left: 15px;
+    }
+    .job, .edu-item {
+      margin-bottom: 20px;
+    }
+    .job-title, .degree {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #2c3e50;
+      margin-bottom: 4px;
+    }
+    .company, .school {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #7f8c8d;
+      margin-bottom: 4px;
+    }
+    .date {
+      font-size: 0.85rem;
+      color: #95a5a6;
+      margin-bottom: 6px;
+    }
+    .job-points {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      padding-left: 20px;
+      margin: 0;
+      list-style-type: disc;
+    }
+    @media (max-width: 800px) {
+      .container {
+        padding: 30px 20px;
+      }
+      .name-title h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      .columns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="back-button" onclick="window.location.href='index.html'">← Back to Home</button>
+
+  <article class="container" role="main">
+    <div class="columns">
+      <div class="left-column">
+        <div class="name-title">
+          <img src="Picture.jpeg" alt="Profile photo" style="border-radius: 50%; width: 120px; height: 120px;">
+          <h1>Ace Jefferson <br> Divino</h1>
+          <p>Undergraduate</p>
+        </div>
+        <div class="contact-info contact-box" aria-label="Contact Information">
+          <div>Email: divinoace83@gmail.com</div>
+          <div>Phone: (+63) 9176160124</div>
+          <div>Location: San Mateo, Province of Rizal, Philippines, 1850</div>
+        </div>
+        <section aria-labelledby="skills-heading">
+          <div class="section-box">
+            <h2 id="skills-heading">Skills</h2>
+            <div class="skills-list" role="list">
+              <span class="skill" role="listitem">Administrative Support</span>
+              <span class="skill" role="listitem">Customer Service</span>
+              <span class="skill" role="listitem">Enrollment Assistance</span>
+              <span class="skill" role="listitem">Event & Outreach Coordination</span>
+              <span class="skill" role="listitem">Team Collaboration</span>
+              <span class="skill" role="listitem">Problem-Solving</span>
+              <span class="skill" role="listitem">Communication & Interpersonal Skills</span>
+            </div>
+          </div>
+        </section>
+        <section aria-labelledby="education-heading">
+          <div class="section-box education">
+            <h2 id="education-heading">Education</h2>
+            <div class="edu-item" role="article">
+              <div class="degree">Basic Education - Elementary, High School, and Senior High School Completed</div>
+              <div class="school">Saint Joseph Montessori Integrated School Foundation</div>
+              <div class="date">Completed</div>
+            </div>
+            <div class="edu-item" role="article">
+              <div class="degree">Currently Pursuing: Bachelor of Science in Information Technology</div>
+              <div class="school">FEU Institute of Technology</div>
+              <div class="date">Expected Graduation: TBA</div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="right-column">
+        <section aria-labelledby="summary-heading">
+          <div class="section-box">
+            <h2 id="summary-heading">Professional Summary</h2>
+            <p class="summary">
+              Dynamic administrative professional with a proven track record at Saint Joseph Montessori Integrated School Foundation, excelling in event coordination, customer service, and office support. Skilled in document preparation and fundraising, with hands-on experience organizing successful outreach activities that strengthened community engagement. Demonstrates strong organizational and problem-solving abilities, consistently supporting team objectives and fostering positive relationships. Developed communication and collaboration skills in a fast-paced office environment, ensuring smooth operations and effective teamwork. Highly adaptable, with a proven ability to manage multiple tasks and prioritize efficiently.
+            </p>
+          </div>
+        </section>
+        <section aria-labelledby="experience-heading">
+          <div class="section-box experience">
+            <h2 id="experience-heading">Experience</h2>
+            <div class="job" role="article">
+              <div class="job-title">Assistance to the Office Administrator</div>
+              <div class="company">Saint Joseph Montessori Integrated School Foundation</div>
+              <div class="date">November 2023 – July 2024</div>
+              <ul class="job-points">
+                <li>Assisted with office administrative tasks such as processing paperwork and releasing Certificates of Good Moral.</li>
+                <li>Supported front desk operations by entertaining and guiding school enrollees.</li>
+                <li>Contributed to sales initiatives by helping organize and execute fundraising activities, selling school supplies (e.g., ball pens, markers, staplers).</li>
+                <li>Helped coordinate and participate in a community outreach program for an orphanage, including organizing art and recreational activities.</li>
+                <li>Sponsored and distributed food and art materials for the outreach, demonstrating initiative, teamwork, and social responsibility.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section aria-labelledby="languages-heading">
+          <div class="section-box">
+            <h2 id="languages-heading">Languages</h2>
+            <div class="skills-list" role="list">
+              <span class="skill" role="listitem">Fluent Tagalog</span>
+                            <span class="skill" role="listitem">Basic English</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

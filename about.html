@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me - My Personal Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+<body> <div id="page-loader">Loading...</div>
+  <header>
+    <div class="container">
+      <h1>About Me</h1>
+      <nav>
+      <a href="index.html" class="nav-link heartbeat-hover">Home</a>
+      <a href="about.html" class="nav-link heartbeat-hover">About</a>
+      <a href="contact.html" class="nav-link heartbeat-hover">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+	<button onclick="toggleDarkMode()" id="darkModeToggle">Toggle Dark Mode</button>
+
+	<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  	}
+	</script>
+
+		<h2 style="text-align: center; color: white;">Current Time:</h2>
+	<div id="clock" style="color: white; text-align: center;">Loading time...</div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    const timeString = `${hours.toString().padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+    document.getElementById('clock').textContent = timeString;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+
+  <!-- Who Am I Section -->
+  <main class="box-container">
+    <section>
+      <img src="Picture.jpeg" alt="Profile photo" style="border-radius: 50%; width: 120px; height: 120px;">
+      <h2>Who Am I?</h2>
+      <p>Hello! I'm a Bachelor of Science in Information Technology specialized in Cybersecurity student at Feu Institute of Technology, currently taking Web Design with Client-Side Scripting subject, learning all about HTML, CSS, and soon JavaScript.
+<br> I'm eager to embark on the exciting journey that lies ahead in my chosen profession</p>
+    </section>
+  </main>
+
+  <!-- Interests Section -->
+  <main class="box-container">
+    <section>
+      <h2>My Interests</h2>
+      <ul>
+        <li>Online Games</li>
+        <li>Badminton & Volleyball</li>
+        <li>Mangas & Manhwas</li>
+        <li>Strolling</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Skills Section -->
+  <main class="box-container">
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Basic HTML, CSS, and C++</li>
+        <li>Communication</li>
+        <li>Creativity</li>
+        <li>Critical Thinking</li>
+        <li>Team Player</li>
+      </ul>
+    </section>
+  </main>
+
+  <a href="index.html" class="back-button">← Back to Home</a>
+
+  <!-- Contact Info -->
+  <section class="contact-info-right">
+    <div class="glow-box">
+      <h5 style="margin: 2px 0;">Contact Number: 0917xxxx124</h5>
+      <h5 style="margin: 2px 0;">Email: 202412010@fit.edu.ph</h5>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© Divino, Ace Jefferson T. | Finals Activity Web Design</p>
+    </div>
+
+    <script>
+  document.querySelectorAll('a.nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+
+      // If it's a normal link (not # or JS)
+      if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+        e.preventDefault();
+
+        const loader = document.getElementById('page-loader');
+        loader.style.display = 'flex';
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500); // .5 second delay
+      }
+    });
+  });
+</script>
+
+
+  </footer>
+</body>
+</html>

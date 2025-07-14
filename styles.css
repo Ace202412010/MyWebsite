@@ -1,0 +1,127 @@
+body {
+  font-family: 'Segoe UI';
+  background-color: #68F032;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 30px;
+  font-size: 28px;
+}
+
+
+form {
+  background-color: #ffffff;
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 30px 40px;
+  border-radius: 12px;
+}
+
+
+form p {
+  margin-bottom: 20px;
+}
+
+
+label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+
+.submit-button {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.submit-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.03);
+}
+
+/* Click effect */
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+/* Simulated loading state */
+.submit-button:focus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Optional: hide the button text while loading */
+.submit-button:focus {
+  color: transparent;
+}
+
+/* Spinner keyframes */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.thankyou-message {
+  display: none;
+  text-align: center;
+  font-weight: bold;
+  color: green;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+#thankyou:target {
+  display: block;
+}
