@@ -93,10 +93,10 @@
   <main class="box-container">
     <section>
       <ul>
-        <li><a href="Resume.html"><strong>Project D - Resume</strong></a></li>
+        <li><a href="960px.html"><strong>Project D - 960px Grid</strong></a></li>
       </ul>
-      <p> This is a resume project, in which contains my experiences, skills, and basic information. Click the highlighted text to see the actual project.
-      <img src="https://resumegenius.com/wp-content/uploads/new-age-colorful-resume-template-aqua-red.png" width="150" height="150" alt="Resume">
+      <p> This is an activity tasked to demonstrate the application of 960px grid. Click the highlighted text to see the actual project.
+      <img src="https://i.sstatic.net/qK43f.jpg" width="150" height="150" alt="960px Grid">
     </section>
   </main>
 </div>
@@ -122,14 +122,14 @@
       e.preventDefault();
       const href = this.getAttribute('href');
 
-      // Show loader
+      // loading effect
       const loader = document.getElementById('page-loader');
       loader.style.display = 'flex';
 
       // Delay redirect
       setTimeout(() => {
         window.location.href = href;
-      }, 1000); // 1-second loading effect
+      }, 1000); // 1 second delay
     });
   });
 </script>
@@ -139,7 +139,7 @@
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
 
-      // If it's a normal link (not # or JS)
+      
       if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
         e.preventDefault();
 
