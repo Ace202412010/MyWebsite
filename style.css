@@ -200,6 +200,7 @@ ul li a:hover {
   color: #00BFFF;
 }
 
+
 /* Microinteractions */
 button:active {
   transform: scale(0.95);
@@ -278,7 +279,7 @@ input:valid {
 .error {
   border: 2px solid red;
 }
-
+/* sending message */
 button.loading {
   background-color: #555;
   color: #fff;
@@ -366,4 +367,22 @@ input:focus, textarea:focus {
   border-color: #7ec8e3;
   box-shadow: 0 0 10px rgba(126, 200, 227, 0.5);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Styling for the name and email input fields */
+#name, #email {
+  width: 100%; /* Make the input fields take up the full width of the container */
+  padding: 10px; /* Add padding inside the fields */
+  font-size: 16px; /* Make the text larger */
+  margin-bottom: 10px; /* Add space between the input fields */
+  box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+}
+
+/* Styling for the message textarea */
+#message {
+  width: 100%; /* Full width */
+  height: 200px; /* Adjust the height */
+  padding: 10px; /* Padding inside the textarea */
+  font-size: 16px; /* Larger text */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
